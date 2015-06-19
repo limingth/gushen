@@ -1,3 +1,7 @@
+Meteor.publish('stocks', function() {
+  return Stocks.find();
+});
+
 Meteor.publish('products', function() {
   return Products.find();
 });

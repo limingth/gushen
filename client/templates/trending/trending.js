@@ -1,6 +1,6 @@
 Template.trending.created = function () {
   this.autorun(function () {
-    this.subscription = Meteor.subscribe('products');
+    this.subscription = Meteor.subscribe('stocks');
   }.bind(this));
 };
 
@@ -15,7 +15,7 @@ Template.trending.rendered = function () {
 };
 
 Template.trending.helpers({
-  products: function () {
-    return Products.find({}, {sort: {numberOfVotes: -1, name: -1}});
+  stocks: function () {
+    return Stocks.find({}, {sort: {value: -1, name: -1}});
   }
 });

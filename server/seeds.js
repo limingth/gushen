@@ -23,67 +23,38 @@ Meteor.startup(function() {
     }
   ];
 
-  var products = [
+  var stocks = [
     {
-      url: 'https://respond.ly/',
-      name: 'Respondly',
-      tagline: 'Simple Team Inbox for Email and Twitter'
+      code: '600001',
+      name: '机场',
+      value: '-10%'
     },
     {
-      url: 'http://versoapp.com/',
-      name: 'Verso',
-      tagline: 'Allows schools to analyze student progress and measure teacher performance.'
+      code: '600002',
+      name: '矿业',
+      value: '-5%'
     },
     {
-      url: 'https://beta.workpop.com/',
-      name: 'Workpop',
-      tagline: 'Job marketplace that modernizes the process of hiring for hourly workers.'
+      code: '600003',
+      name: '教育',
+      value: '-0.5%'
     },
     {
-      url: 'http://www.classcraft.com/',
-      name: 'Classcraft',
-      tagline: 'Educational role-playing game that teachers and students play together in the classroom.'
+      code: '600004',
+      name: '科技',
+      value: '0.5%'
     },
     {
-      url: 'http://blonk.co/',
-      name: 'Blonk',
-      tagline: 'Tinder for job hunting.'
+      code: '600005',
+      name: '食品',
+      value: '5%'
     },
     {
-      url: 'https://lookback.io/',
-      name: 'LookBack',
-      tagline: 'Makes recording mobile user experiences and bugs a breeze.'
-    },
-    {
-      url: 'https://www.cladwell.com/',
-      name: 'Cladwell',
-      tagline: 'A personal roadmap to dress better. Cladwell makes clothing simple.'
-    },
-    {
-      url: 'https://usercycle.com/',
-      name: 'USERcycle',
-      tagline: 'Analytics That Grow Your Business'
-    },
-    {
-      url: 'http://assistant.io/',
-      name: 'Assistant.io',
-      tagline: 'Schedule group meetings painlessly'
-    },
-    {
-      url: 'https://getliquid.io/',
-      name: 'Liquid',
-      tagline: 'Easily Collect, Analyze & Share Data'
-    },
-    {
-      url: 'http://beats.meteor.com/',
-      name: 'Meteor Beats',
-      tagline: 'A collaborative and fully reactive drum machine.'
-    },
-    {
-      url: 'https://mixmax.com/',
-      name: 'Mixmax',
-      tagline: 'Mixmax gives your Gmail superpowers. Schedule meetings 10x faster.'
+      code: '600006',
+      name: '团购',
+      value: '10%'
     }
+
   ];
 
   if (Meteor.users.find({}).count() === 0) {
@@ -92,15 +63,12 @@ Meteor.startup(function() {
     });
   }
 
-  var author = Meteor.users.find().fetch()[0];
-  if (Products.find({}).count() === 0) {
-    _(products).each(function (product) {
-      Products.insert({
-        userId: author._id,
-        url: product.url,
-        name: product.name,
-        tagline: product.tagline,
-        createdAt: new Date()
+  if (Stocks.find({}).count() === 0) {
+    _(stocks).each(function (stock) {
+      Stocks.insert({
+        code: stock.code,
+        name: stock.name,
+        value: stock.value,
       });
     });
   }
