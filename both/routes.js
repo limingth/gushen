@@ -1,4 +1,8 @@
 Router.route('/', {
+  name: 'search'
+});
+
+Router.route('/trending', {
   name: 'trending'
 });
 

@@ -9,7 +9,7 @@ Stocks.search = function(query) {
     return;
   }
   return Stocks.find({
-    name: { $regex: RegExp.escape(query), $options: 'i' }
+    code: { $regex: RegExp.escape(query), $options: 'i' }
   }, {
     limit: 20
   });
