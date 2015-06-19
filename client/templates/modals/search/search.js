@@ -1,6 +1,6 @@
 Tracker.autorun(function() {
   if (Session.get('searchQuery')) {
-    Meteor.subscribe('productsSearch', Session.get('searchQuery'));
+    Meteor.subscribe('stocksSearch', Session.get('searchQuery'));
   }
 });
 
@@ -15,8 +15,8 @@ Template.search.events({
 });
 
 Template.search.helpers({
-  products: function() {
-    return Products.search(Session.get('searchQuery'));
+  stocks: function() {
+    return Stocks.search(Session.get('searchQuery'));
   },
   searchQuery: function() {
     return Session.get('searchQuery');

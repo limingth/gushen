@@ -7,8 +7,8 @@
           <input type="text" placeholder="Search" value="{{searchQuery}}">
         </label>
       </div>
-      {{#each products}}
-        {{> _productItem product=this path="products.show"}}
+      {{#each stocks}}
+        {{> _productItem product=this path="stocks.show"}}
       {{/each}}
     </div>
   {{/ionModal}}

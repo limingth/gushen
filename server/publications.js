@@ -6,6 +6,16 @@ Meteor.publish('products', function() {
   return Products.find();
 });
 
+Meteor.publish('stocksSearch', function(query) {
+  check(query, String);
+
+  if (_.isEmpty(query)) {
+    return this.ready();
+  }
+
+  return Stocks.search(query);
+});
+
 Meteor.publish('productsSearch', function(query) {
   check(query, String);
 
